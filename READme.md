@@ -90,11 +90,6 @@ docker-compose up --build
 - Predict task priority via AI Service API.
 - Retrieve analytics reports via Analytics Service API.
 
-## Contributing
-- Fork the repository and create a new branch for your features.
-- Commit changes with clear messages.
-- Submit a pull request for review.
-
 ## Contact
 For any queries, contact: abhishekmahajan235@gmail.com
 
