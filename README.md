@@ -1,4 +1,4 @@
-# AI-Powered Smart Task Management & Analytics Platform
+# Intelligent Task Management System with AI-Powered Insights
 
 ## Overview
 A backend microservices platform for managing tasks and projects with a smart AI add-on for predicting task priorities and deadlines. Includes analytics to provide insights on user productivity and task trends.
