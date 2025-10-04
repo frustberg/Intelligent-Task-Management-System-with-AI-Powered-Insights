@@ -1,0 +1,1 @@
+AI service (mock recommendations) with actuator.

@@ -1,0 +1,58 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo:6.0
+    container_name: platform-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  user-service:
+    build: ./user-service
+    container_name: userservice-app
+    depends_on:
+      - mongo
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://mongo:27017/userservice
+    ports:
+      - "8081:8081"
+
+  task-service:
+    build: ./task-service
+    container_name: taskservice-app
+    depends_on:
+      - mongo
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://mongo:27017/taskservice
+    ports:
+      - "8082:8082"
+
+  analytics-service:
+    build: ./analytics-service
+    container_name: analyticsservice-app
+    ports:
+      - "8083:8083"
+    depends_on:
+      - task-service
+
+  ai-service:
+    build: ./ai-service
+    container_name: aiservice-app
+    ports:
+      - "8084:8084"
+
+  api-gateway:
+    build: ./api-gateway
+    container_name: apigateway-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - user-service
+      - task-service
+      - analytics-service
+      - ai-service
+
+volumes:
+  mongo_data:

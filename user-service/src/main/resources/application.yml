@@ -1,0 +1,15 @@
+spring:
+  data:
+    mongodb:
+      uri: ${SPRING_DATA_MONGODB_URI:mongodb://localhost:27017/userservice}
+server:
+  port: 8081
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus,env
+  endpoint:
+    health:
+      show-details: when_authorized

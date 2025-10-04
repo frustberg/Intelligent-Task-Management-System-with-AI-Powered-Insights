@@ -1,0 +1,1 @@
+Analytics service with actuator and Feign client.

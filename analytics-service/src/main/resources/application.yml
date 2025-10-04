@@ -1,0 +1,11 @@
+server:
+  port: 8083
+
+task-service:
+  url: http://task-service:8082/api/tasks
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus

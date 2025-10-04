@@ -1,0 +1,13 @@
+User Service (updated)
+- Endpoints:
+  - POST /api/auth/register
+  - POST /api/auth/login -> returns accessToken and refreshToken
+  - POST /api/auth/refresh -> {refreshToken} returns new accessToken
+  - POST /api/auth/revoke -> {username} revokes refresh tokens for user
+  - GET /api/users/me
+  - PUT /api/users/me
+  - GET /api/users/all (admin only)
+- Notes:
+  - JWT secret read from env var app.jwt.secret or default value
+  - Refresh tokens stored in MongoDB collection refresh_tokens
+  - Actuator endpoints exposed: /actuator/health, /actuator/info, /actuator/prometheus
